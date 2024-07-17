@@ -21,7 +21,9 @@ int binary_search(int *array, size_t size, int value)
 	print_array(array, l, r);
 	while (l <= r)
 	{
-		m = (l + r) / 2;
+		/*Floor used to convert the floating point number
+		  to smaller integar eg: 3.6 ==> 3 */
+		m = floor((l + r) / 2);
 		if (array[m] < value)
 		{
 			l = m + 1;
