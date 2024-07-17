@@ -1,5 +1,4 @@
 #include "search_algos.h"
-#include <math.h>
 
 /**
  * binary_search - Search for value in list of numbers
@@ -13,7 +12,7 @@ int binary_search(int *array, size_t size, int value)
 	size_t l, r;
 	int m;
 
-	if (!array)
+	if (!array || !size)
 		return (-1);
 
 	/* l ==> left  ...  r ==> right ...  m ==> middle */
@@ -22,9 +21,7 @@ int binary_search(int *array, size_t size, int value)
 	print_array(array, l, r);
 	while (l <= r)
 	{
-		/*Floor used to convert the floating point number
-		  to smaller integar eg: 3.6 ==> 3 */
-		m = floor((l + r) / 2);
+		m = (l + r) / 2;
 		if (array[m] < value)
 		{
 			l = m + 1;
